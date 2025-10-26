@@ -1,0 +1,247 @@
+/* Base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Acme', sans-serif;
+    color: #0757e0;
+}
+
+/* Section Title */
+.section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ccd6f6;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #233554;
+    padding-bottom: 10px;
+}
+
+/* Card Row */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: clamp(16px, 5vw, 40px) clamp(16px, 10vw, 200px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 16px;
+}
+
+/* Hide heavy scrollbars (optional) */
+.container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #23355455;
+    border-radius: 4px;
+}
+
+/* Card */
+.card {
+    position: relative;
+    flex: 0 0 auto;
+    width: clamp(260px, 30vw, 300px);
+    min-width: 260px;
+    height: 400px;
+    margin: 20px 0;
+    background: whitesmoke;
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    transition: transform 1s, box-shadow 0.4s;
+    box-shadow: inset 100px 0 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+.card:hover {
+    z-index: 1111;
+    transform: perspective(2000px) rotate(-10deg);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Image face */
+.card .img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    transform-origin: left;
+    z-index: 1;
+    transition: transform 1s;
+}
+
+.card .img-container img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Back face (details) */
+.card .card-details {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.card .card-details h2 {
+    margin: 0;
+    padding: 0.2em 0;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #ed363a;
+    overflow-wrap: break-word;
+}
+
+.card .card-details p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    color: #000;
+    overflow-wrap: break-word;
+}
+
+/* Flip interaction (desktop/hover devices) */
+.card:hover .img-container {
+    transform: rotateY(-135deg);
+}
+
+/* Animations (kept) */
+@keyframes arcPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 120px;
+        height: 120px;
+        opacity: 0;
+    }
+}
+
+/* ---------- Responsive & Touch Fixes ---------- */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+    .section-heading {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        height: 360px;
+    }
+}
+
+/* Tablets & small laptops */
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 1.6rem;
+    }
+
+    .container {
+        padding: 20px;
+        gap: 16px;
+    }
+
+    /* Show a peek of the next card */
+    .card {
+        width: 85vw;
+        /* card fills most of the viewport */
+        min-width: 300px;
+        /* but not too small */
+        height: auto;
+        /* let height adapt when needed */
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .section-heading {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        padding: 12px;
+        gap: 14px;
+    }
+
+    /* Keep horizontal swipe & peek of next card */
+    .card {
+        width: 88vw;
+        min-width: 280px;
+        height: auto;
+    }
+
+    .card .card-details h2 {
+        font-size: 1rem;
+    }
+
+    .card .card-details p {
+        font-size: 0.8em;
+        line-height: 1.35em;
+    }
+}
+
+/* Touch devices: disable hover flip and show details below the image */
+@media (hover: none) {
+    .card {
+        transform: none;
+        /* no tilt on touch */
+        box-shadow: inset 40px 0 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card .img-container {
+        height: 220px;
+        /* fixed image strip */
+        border: none;
+        transform: none !important;
+        /* stop flip */
+    }
+
+    .card .card-details {
+        position: relative;
+        /* stack under image */
+        inset: auto;
+        height: auto;
+        overflow: visible;
+        /* allow content to expand */
+        padding: 12px 14px 16px;
+    }
+}
+
+/* Safety: long words never break layout */
+.card,
+.card * {
+    min-width: 0;
+    word-break: break-word;
+}

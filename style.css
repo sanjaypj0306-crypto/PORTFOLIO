@@ -1,0 +1,448 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1.1px;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background: #020e48;
+    font-family: "Varela Round", sans-serif;
+}
+
+/* === Navbar Container === */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    padding: 0 30px;
+    background-color: #030a15;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    font-family: "Varela Round", sans-serif;
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slideIn 0.8s ease-out forwards;
+
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0i...");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 390px;
+}
+
+/* === Logo === */
+.navbar-logo {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 1.5px;
+    margin-right: auto;
+}
+
+/* Active state */
+.nav-link.active {
+    color: #ff9800;
+    font-weight: bold;
+    border-bottom: 2px solid #ff9800;
+}
+
+/* === Navigation Links === */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* Nav Links & Ripple */
+.nav-link {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.3em);
+    text-transform: uppercase;
+    font-family: "Varela Round", sans-serif;
+    color: #85B9FF;
+    transition: all 0.45s;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Glow for active */
+.nav-item.active .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    border-radius: 2px;
+    background: radial-gradient(circle, #38bdf8 0%, rgba(56, 189, 248, 0) 70%);
+    box-shadow: 0 0 6px 3px #38bdf8;
+    animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 120%;
+    height: 200%;
+}
+
+.nav-link:hover .linktext {
+    color: #d94f5c;
+}
+
+.linktext {
+    position: relative;
+    z-index: 2;
+}
+
+/* Decorative Box */
+.testbox {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    height: 25px;
+    width: 100%;
+    background: transparent;
+    text-align: right;
+    overflow: hidden;
+    transform: translate(20px, -50px) rotate(20deg);
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 2;
+}
+
+.fix {
+    left: calc(50% - 0.5px);
+}
+
+.testbox span {
+    font-size: 1.3em;
+    position: absolute;
+    left: -50%;
+    color: #236CCF;
+    text-transform: uppercase;
+    transition: 3s ease-in-out;
+}
+
+/* === Animations === */
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes line {
+    0% {
+        background-position-x: 390px;
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1.2);
+    }
+}
+
+/* === Hero Section === */
+.hero-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 6vw, 7rem);
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #ccd6f6;
+    align-items: center;
+}
+
+/* === Text Styling === */
+.hero-text h1,
+.animate {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin: 0;
+}
+
+.hero-text h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: #8892b0;
+    margin-top: 0.5rem;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #8892b0;
+    margin-top: 1.5rem;
+    max-width: 90%;
+}
+
+.hero-subtext p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.8;
+    color: #8892b0;
+}
+
+/* === Animation Styles === */
+.animate span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg) scale(0);
+    animation: dropVanish 1s forwards ease-out;
+}
+
+.animate span.space {
+    width: 0.6em;
+}
+
+.dropping-texts {
+    display: inline-block;
+    width: 180px;
+    text-align: left;
+    height: 36px;
+    vertical-align: -2px;
+    position: relative;
+}
+
+.dropping-texts>div {
+    font-size: 1.5rem;
+    opacity: 0;
+    position: absolute;
+    font-weight: 300;
+    color: #64fff7;
+    animation: roll 5s linear infinite;
+}
+
+.dropping-texts>div:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.dropping-texts>div:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.dropping-texts>div:nth-child(4) {
+    animation: roll2 5s linear infinite 3s;
+}
+
+/* === Keyframes === */
+@keyframes dropVanish {
+    30% {
+        transform: translateY(-50px) rotate(180deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(20px) scale(0.8) rotate(0deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(-100px) translateY(-100px) scale(1.5) rotate(-180deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes roll {
+    0% {
+        font-size: 0;
+        opacity: 0;
+        transform: rotate(-25deg);
+    }
+
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        transform: rotate(0);
+    }
+
+    20% {
+        transform: rotate(0);
+    }
+
+    27% {
+        opacity: 0;
+        transform: translateY(100px) rotate(15deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes roll2 {
+    0% {
+        font-size: 0;
+        opacity: 0;
+        transform: rotate(-25deg);
+    }
+
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        transform: rotate(0);
+    }
+
+    30% {
+        transform: rotate(0);
+    }
+
+    37% {
+        transform: scale(1.5) translate(-1000px, -800px) rotate(-180deg);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* === Responsive Breakpoints === */
+@media (max-width: 1024px) {
+    .hero-container {
+        padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 5vw, 4rem);
+        gap: 40px;
+    }
+
+    .dropping-texts {
+        width: 160px;
+        height: 32px;
+    }
+
+    .dropping-texts>div {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    .navbar-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .nav-item {
+        min-width: 80px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding-top: 10px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-text p,
+    .hero-subtext p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dropping-texts {
+        width: 140px;
+        height: 28px;
+        margin: 0 auto;
+    }
+
+    .dropping-texts>div {
+        font-size: 1.1rem;
+    }
+
+    .animate span.space {
+        width: 0.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+    }
+
+    .dropping-texts {
+        width: 120px;
+        height: 24px;
+    }
+
+    .dropping-texts>div {
+        font-size: 1rem;
+    }
+
+    .hero-text h1,
+    .animate {
+        font-size: 2.2rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-subtext p {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+
+/* 🌟 Contact Section Container */
+body {
+    background: #132147;
+}
+
+.contact {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 0 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    position: relative;
+}
+
+.contact-heading {
+    font-size: 2rem;
+    color: #ccd6f6;
+    margin-bottom: 20px;
+}
+
+.contact-text {
+    font-size: 16px;
+    color: #8892b0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* 💌 Animated Letter Styles */
+.letter-image {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 60px auto;
+    cursor: pointer;
+}
+
+.animated-mail {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    transition: 0.4s;
+}
+
+.animated-mail .body {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 100px 200px;
+    border-color: transparent transparent #e95f55 transparent;
+    z-index: 2;
+}
+
+.animated-mail .top-fold {
+    position: absolute;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 100px 0 100px;
+    transform-origin: 50% 0%;
+    transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    border-color: #cf4a43 transparent transparent transparent;
+    z-index: 2;
+}
+
+.animated-mail .back-fold {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    background: #cf4a43;
+    z-index: 0;
+}
+
+.animated-mail .left-fold {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 0 50px 100px;
+    border-color: transparent transparent transparent #e15349;
+    z-index: 2;
+}
+
+.animated-mail .letter {
+    left: 20px;
+    bottom: 0;
+    position: absolute;
+    width: 160px;
+    height: 60px;
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.4s 0.2s;
+}
+
+.animated-mail .letter-border {
+    height: 10px;
+    width: 100%;
+    background: repeating-linear-gradient(-45deg, #cb5a5e, #cb5a5e 8px, transparent 8px, transparent 18px);
+}
+
+.animated-mail .letter-title,
+.animated-mail .letter-context {
+    margin-left: 5px;
+    background: #cb5a5e;
+}
+
+.animated-mail .letter-title {
+    margin-top: 10px;
+    height: 10px;
+    width: 40%;
+}
+
+.animated-mail .letter-context {
+    margin-top: 10px;
+    height: 10px;
+    width: 20%;
+}
+
+.animated-mail .letter-stamp {
+    margin-top: 30px;
+    margin-left: 120px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    background: #cb5a5e;
+    opacity: 0.3;
+}
+
+.shadow {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 400px;
+    height: 30px;
+    transition: 0.4s;
+    transform: translateX(-50%);
+    border-radius: 100%;
+    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.letter-image:hover .animated-mail {
+    transform: translateY(50px);
+}
+
+.letter-image:hover .animated-mail .top-fold {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.letter-image:hover .animated-mail .letter {
+    height: 180px;
+}
+
+.letter-image:hover .shadow {
+    width: 250px;
+}
+
+/* 🎯 Button inside Letter */
+.button-inside-letter {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.letter-image:hover .button-inside-letter {
+    opacity: 1;
+}
+
+/* 📮 Say Hi Button Enhanced Styling */
+.contact-button {
+    display: inline-block;
+    padding: 12px 26px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
+    background: linear-gradient(135deg, #fff 0%, #f2f2f2 100%);
+    color: #cb5a5e;
+    border: 2px solid #cb5a5e;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(203, 90, 94, 0.4) 0%, transparent 70%);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.contact-button:hover::before {
+    opacity: 1;
+}
+
+.contact-button:hover {
+    background-color: #cb5a5e;
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(203, 90, 94, 0.3);
+    transform: translateY(-3px);
+}
+
+/* 🌐 Slanted Social Buttons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.social-links .fa-github {
+    color: #181717;
+    font-size: 50px;
+}
+.social-links .fa-github:hover {
+    color: #333;
+    /* lighter black */
+    transform: scale(1.2);
+}
+
+/* LinkedIn blue */
+.social-links .fa-linkedin {
+    color: #009ff4;
+    font-size: 60px;
+    
+}
+.social-links .fa-linkedin:hover {
+    color: #0a66c2;
+    /* brighter LinkedIn blue */
+    transform: scale(1.2);
+}
+
+/* Instagram gradient look (fallback solid pinkish) */
+.social-links .fa-instagram {
+    color: #f52a4f;
+    font-size: 60px;
+    
+}
+.social-links .fa-instagram:hover {
+    color: #fd1d1d;
+    /* bright pink/red */
+    transform: scale(1.2);
+}
+.social-links li {
+    margin: 0 10px;
+    position: relative;
+}
+
+.social-links li a {
+    position: relative;
+    display: block;
+    width: 210px;
+    height: 80px;
+    background: #fff;
+    text-align: left;
+    padding-left: 20px;
+    text-decoration: none;
+    transform: rotate(-30deg) skew(25deg);
+    transition: 0.5s;
+    box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+.social-links li a:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 20px;
+    height: 100%;
+    background: #b1b1b1;
+    transform: rotate(0deg) skewY(-45deg);
+}
+
+.social-links li a:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    width: 100%;
+    height: 20px;
+    background: #b1b1b1;
+    transform: rotate(0deg) skewX(-45deg);
+}
+
+.social-links li a:hover {
+    transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+    box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.social-links li a .fa {
+    font-size: 40px;
+    color: #262626;
+    line-height: 80px;
+    padding-right: 14px;
+    transition: 0.5s;
+}
+
+.social-links li a span {
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    color: #262626;
+    letter-spacing: 4px;
+    transition: 0.5s;
+}
+
+.social-links li:hover .fa,
+.social-links li:hover span {
+    color: #fff;
+}
+
+.social-links li:nth-child(1):hover a {
+    background: #242424;
+}
+
+.social-links li:nth-child(1):hover a:before {
+    background: #1b1f23;
+}
+
+.social-links li:nth-child(1):hover a:after {
+    background: #586069;
+}
+
+/* 💼 LinkedIn Colors */
+.social-links li:nth-child(2):hover a {
+    background: #0077b5;
+}
+
+.social-links li:nth-child(2):hover a:before {
+    background: #005983;
+}
+
+.social-links li:nth-child(2):hover a:after {
+    background: #3396c7;
+}
+
+/* 📸 Instagram Colors */
+.social-links li:nth-child(3):hover a {
+    background: #e1306c;
+}
+
+.social-links li:nth-child(3):hover a:before {
+    background: #c13584;
+}
+
+.social-links li:nth-child(3):hover a:after {
+    background: #f56040;
+}
+
+/* 📱 Tablet and smaller */
+@media (max-width: 768px) {
+    .contact {
+        margin: 50px auto;
+        padding: 0 10px;
+    }
+
+    .contact-heading {
+        font-size: 1.6rem;
+    }
+
+    .letter-image {
+        width: 150px;
+        height: 150px;
+        margin: 40px auto;
+    }
+
+    .animated-mail {
+        width: 150px;
+        height: 110px;
+    }
+
+    .shadow {
+        width: 250px;
+        top: 160px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .social-links li {
+        margin: 10px 0;
+    }
+
+    .social-links li a {
+        width: 160px;
+        height: 60px;
+        transform: none;
+        padding-left: 10px;
+        box-shadow: none;
+    }
+
+    .social-links li a span {
+        top: 20px;
+        left: 60px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* 📱 Extra small phones */
+@media (max-width: 480px) {
+    .contact-heading {
+        font-size: 1.4rem;
+    }
+
+    .contact-text {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-button {
+        padding: 10px 18px;
+        font-size: 16px;
+    }
+}
+
+/* 🌐 Horizontal Scroll for desktop, normal wrap for mobile */
+@media (min-width: 769px) {
+    .horizontal-scroll {
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .horizontal-scroll p {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 768px) {
+    .horizontal-scroll {
+        white-space: normal;
+        overflow-x: hidden;
+    }
+}

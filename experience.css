@@ -1,0 +1,218 @@
+.experience-section {
+    padding: 80px 60px;
+    background-color: #0b111d;
+    font-family: "Varela Round", sans-serif;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.section-title {
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #38bdf8;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #236CCF;
+    padding-bottom: 10px;
+    text-align: center;
+    z-index: 2;
+    transition: text-shadow 0.4s ease;
+}
+
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.section-title:hover {
+    text-shadow: 0 0 12px #38bdf8;
+}
+
+/* 🌠 Entry Float-In Effect */
+.experience-card {
+    transform: translateY(40px);
+    opacity: 0;
+    animation: cardReveal 1.6s ease-out forwards 1s;
+}
+
+@keyframes cardReveal {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 💡 Floating Glow Card */
+.experience-block {
+    background-color: #141b29;
+    border-left: 4px solid #38bdf8;
+    padding: 24px 28px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.1);
+    z-index: 2;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.experience-block:hover {
+    transform: scale(1.02) translateY(-3px);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.role-title {
+    font-size: 1.5rem;
+    color: #38bdf8;
+    margin-bottom: 14px;
+}
+
+.role-date {
+    font-size: 0.9rem;
+    color: #85B9FF;
+    margin-bottom: 20px;
+    display: block;
+    opacity: 0.7;
+}
+
+.experience-summary,
+.experience-outro {
+    font-size: 1rem;
+    color: #cce5ff;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* 🧬 Trail Reveal Bullets */
+.experience-details {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.experience-details li {
+    font-size: 0.95rem;
+    color: #aad8ff;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 18px;
+    opacity: 0;
+    animation: highlightTrail 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: var(--delay, 0s);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.experience-details li:hover {
+    color: #d1f1ff;
+    text-shadow: 0 0 8px #38bdf8;
+}
+
+.experience-details li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #38bdf8;
+}
+
+@keyframes highlightTrail {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+        filter: blur(2px);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+    .experience-section {
+        padding: 60px 40px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .experience-block {
+        padding: 20px;
+    }
+
+    .role-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 50px 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .experience-block {
+        padding: 18px;
+    }
+
+    .role-title {
+        font-size: 1.2rem;
+    }
+
+    .experience-summary,
+    .experience-outro,
+    .experience-details li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-section {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .experience-block {
+        padding: 15px;
+        border-left: 3px solid #38bdf8;
+    }
+
+    .role-title {
+        font-size: 1.1rem;
+    }
+
+    .role-date {
+        font-size: 0.8rem;
+    }
+
+    .experience-summary,
+    .experience-outro,
+    .experience-details li {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}

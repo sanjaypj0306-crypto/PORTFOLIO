@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay P J - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="experience.css">
+    <link rel="stylesheet" href="Contact.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- 🔹 Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">Sanjay P J</div>
+        <ul class="navbar-links">
+            <li class="nav-item"><button class="nav-link" onclick="scrollToSection('hero')">Home</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="scrollToSection('about')">About</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="scrollToSection('projects')">Projects</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="scrollToSection('experience')">Experience</button>
+            </li>
+            <li class="nav-item"><button class="nav-link" onclick="scrollToSection('contact')">Contact</button></li>
+        </ul>
+        <div class="navbar-wave"></div>
+    </nav>
+
+    <!-- 🌟 Hero Section -->
+    <div class="hero-wrapper">
+        <div class="hero-container" id="hero">
+            <div class="hero-text">
+                <h1>HI, I'M</h1>
+                <h1 id="animated-heading" class="animate" aria-label="Sanjay P J">
+                    <span>S</span><span>a</span><span>n</span><span>j</span><span>a</span><span>y</span>
+                    <span class="space"></span>
+                    <span>P</span>
+                    <span class="space"></span>
+                    <span>J</span>
+                </h1>
+                <h2>
+                    Leverage
+                    <span class="dropping-texts">
+                        <div>AR/VR</div>
+                        <div>Game_Developer</div>
+                        <div>Web_Developer</div>
+                        <div>Sap_Innovator</div>
+                    </span>
+                </h2>
+                <p>I build accessible, pixel-perfect digital experiences for the web.</p>
+            </div>
+            <div class="hero-subtext">
+                <p>
+                    I'm a developer passionate about crafting accessible, pixel-perfect user interfaces that blend
+                    thoughtful design with robust engineering...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ About Section -->
+    <section id="about" class="about">
+        <h2 class="about-heading">About Me</h2>
+        <div class="about-content">
+            <p>
+                Hello! I’m <strong>Sanjay P J</strong>, a passionate developer focused on building accessible,
+                human-centered products.
+                I enjoy creating things that live on the internet, whether that be websites, games, or immersive AR/VR
+                applications.
+            </p>
+            <p>
+                My interest in development started back in 2022 when I decided to try customizing themes —
+                turns out it taught me a lot about HTML & CSS!
+            </p>
+            <p>
+                Fast-forward to today, I’ve built several projects in AR/VR, Unity, React, and SAP Build Apps,
+                and I’m continuously sharpening my skills in web performance and game development.
+            </p>
+        </div>
+    </section>
+
+    <!-- ✅ Projects Section -->
+    <section id="projects">
+        <h2 class="section-heading">Projects</h2>
+
+        <div class="container">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="img-container">
+                <img src="pro2.jpg" alt="2D floor plan into 3D floor plan using AR">
+
+
+                </div>
+                <div class="card-details">
+                    <h2>2D floor plan into 3D floor plan using AR</h2>
+                    <p>
+                        Through the use of augmented reality, the app turns simple 2D floor layouts into captivating 3D
+                        representations.
+                        Augmented reality (AR) is used to transform 2D floor plans into interactive 3D models, enhancing
+                        visualization and planning capabilities in real estate, architecture, and interior design.
+                        This technology allows users to experience spaces more realistically, aiding in better
+                        decision-making and improved presentations.
+                    </p>
+                    
+                </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="img-container">
+                    <img src="pro1.jpg"
+                        alt="Augmented Reality Application for Home Visualization">
+                </div>
+                <div class="card-details">
+                    <h2>Augmented Reality Application for Home Visualization</h2>
+                    <p>
+                        Developed mobile-optimized 3D models for AR with object occlusion and spatial mapping for realistic
+                        interactions.
+                        Designed an intuitive interface offering a wide range of furnishings and décor, allowing users to
+                        adjust furniture size, rotation, and placement.
+                        Enabled accessible AR home design through smartphones, making the process more inclusive.
+                    </p>
+                   
+                </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="img-container">
+                    <img src="pro3.jpg" alt="Ant Man">
+                </div>
+                <div class="card-details">
+                    <h2>Doctor Appointment Booking System</h2>
+                    <p>Doctor Appointment Booking System (MERN Stack)
+                    Built a secure appointment booking platform with JWT authentication, role-based dashboards, and calendar-based
+                    scheduling. Designed a responsive UI with Tailwind/Material UI and developed RESTful APIs for appointments, profiles,
+                    and analytics. Deployed with Docker & CI/CD on cloud platforms.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  
+
+    <!-- ✅ Experience Section -->
+    <section class="experience-section fade-reveal" id="experience">
+        <h2 class="section-title">Experience</h2>
+    
+        <div class="experience-card experience-block">
+            <h3 class="role-title">SAP Intern — Sierra Digital</h3>
+            <span class="role-date">Jun 2024 – Dec 2024</span>
+    
+            <p class="experience-summary">
+                As an intern at Sierra Digital, I worked with cutting-edge SAP tools to help streamline business operations
+                through low-code platforms. My key contributions included:
+            </p>
+    
+            <ul class="experience-details">
+                <li style="--delay: 0.8s">
+                    <strong>SAP Build Process Automation:</strong> Developed and deployed automated workflows to reduce
+                    manual effort.
+                </li>
+                <li style="--delay: 1.2s">
+                    <strong>SAP Build Apps:</strong> Built responsive enterprise apps using SAP BTP and visual development
+                    tools.
+                </li>
+                <li style="--delay: 2.4s">
+                    Collaborated on prototypes tailored for real-world business challenges and client requirements.
+                </li>
+                <li style="--delay: 3.3s">
+                    Integrated backend logic with intuitive interfaces for seamless user experiences.
+                </li>
+            </ul>
+    
+            <p class="experience-outro">
+                This experience boosted my technical confidence and gave me a solid foundation in process design and
+                low-code development.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ✅ Contact Section -->
+<div class="contact" id="contact">
+    <h2 class="contact-heading">Get In Touch</h2>
+
+    <p class="contact-text">
+        I’m currently open to new opportunities. If you have a project in mind, feel free to say hi!
+    </p>
+
+    <!-- 💌 Animated Letter with Embedded Button -->
+    <div class="letter-image">
+        <div class="animated-mail">
+            <div class="back-fold"></div>
+
+            <div class="letter">
+                <div class="letter-border"></div>
+                <div class="letter-title"></div>
+                <div class="letter-context"></div>
+                <div class="letter-stamp">
+                    <div class="letter-stamp-inner"></div>
+                </div>
+
+                <!-- ✅ Say Hi Button opens Gmail compose window -->
+                <div class="button-inside-letter">
+                    <a href="#" class="contact-button" id="sayHiBtn">Say Hi</a>
+                </div>
+            </div>
+
+            <div class="top-fold"></div>
+            <div class="body"></div>
+            <div class="left-fold"></div>
+        </div>
+        <div class="shadow"></div>
+    </div>
+
+    <!-- 🌐 Slanted Social Buttons -->
+    -<ul class="social-links">
+        <li>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+                <span> - GitHub</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+                <span> - LinkedIn</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+                <span> - Instagram</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+   
+
+    <script src="script.js"></script>
+    <script src="projects.js"></script>
+    <script src="experience.js"></script>
+    <script src="contact.js"></script>
+</html>
